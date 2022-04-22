@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MathsHub | Home</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/index.css">
+    <!-- JS -->
+    <script src="js/index.js"></script>
+</head>
+<body onload="setup()">
+<form id="form">
+    <h3>Login</h3>
+
+    <label for="username">Dein Benutzername</label>
+    <input type="text" placeholder="Benutzername" id="username" required>
+
+    <label>Deine Klasse</label>
+    <div id="grades">
+        <div id="grade1" onclick="chooseGrade(1)">Klasse <br/> 1</div>
+        <div id="grade2" onclick="chooseGrade(2)">Klasse <br/>2</div>
+        <div id="grade3" onclick="chooseGrade(3)">Klasse <br/>3</div>
+        <div id="grade4" onclick="chooseGrade(4)">Klasse <br/> 4</div>
+    </div>
+    <button type="button" id="button" onclick="createUser()">Log In</button>
+    <p id="error">Error:</p>
+</form>
+
+<section id="games" style="display: none;">
+    <h1 id="header">Suche dir ein Spiel aus!</h1>
+    <div id="games_selection">
+        <div id="game_calculate" class="container">
+            <h3 id="tags_calculate"></h3>
+            <h2>Rechnen</h2>
+            <p>Hier kannst du Kopfrechnen üben, dass ist wichtig für dein späteres Leben, ganz sicher!</p>
+            <button type="button" onclick="playCal()">Spielen</button>
+        </div>
+        <div id="game_units" class="container">
+            <h3 id="tags_units"></h3>
+            <h2>Umrechnen</h2>
+            <p>Hier kannst du Umrechnen üben, dass ist besonders wichtig in Physik, glaub mir...</p>
+            <button type="button" onclick="playUnits()">Spielen</button>
+        </div>
+    </div>
+</section>
+
+
+</body>
+</html>

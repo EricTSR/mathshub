@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@700&family=Roboto&display=swap');
+
+* {
+  font-family: 'Arimo', sans-serif;
+}
+
+/* --- insertNumberGame --- */
+
+#insertNumberGame {
+  --color: #560bad;
+  line-height: 2.5em;
+  padding: 1rem;
+  margin: 10rem;
+  border: 2px solid var(--color);
+  font-size: 17px;
+  border-radius: 6px;
+  color: var(--color);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+#text {
+  font-size: 1.5rem;
+}
+
+.container input {
+  border-radius: 15px;
+  border: none;
+  width: 6rem;
+  height: 3rem;
+  font-size: 3rem;
+  text-align: center;
+}
+
+button {
+  --color: #560bad;
+  font-family: inherit;
+  display: inline-block;
+  width: 8em;
+  height: 2.6em;
+  line-height: 2.5em;
+  margin: 20px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--color);
+  transition: color .5s;
+  z-index: 1;
+  font-size: 17px;
+  border-radius: 6px;
+  font-weight: 500;
+  color: var(--color);
+}
+
+button:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: var(--color);
+  height: 150px;
+  width: 200px;
+  border-radius: 50%;
+}
+
+button:hover {
+  color: #fff;
+}
+
+button:before {
+  top: 100%;
+  left: 100%;
+  transition: all .7s;
+}
+
+button:hover:before {
+  top: -30px;
+  left: -30px;
+}
+
+button:active:before {
+  background: #3a0ca3;
+  transition: background 0s;
+}
+
+input:focus, textarea:focus, select:focus{
+  outline: none;
+}
+
+.container input:first-child {
+  background-color: #fcab10;
+}
+
+.container input:nth-last-child(3) {
+  background-color: #00A1E4;
+}
+
+.container input:last-child {
+  border-radius: 15px;
+  background-color: #706993;
+}
+
+.container input {
+  border-radius: 15px;
+  background-color: transparent;
+}
+
+/* --- insertNumberGame --- */
+
+/* --- insertNumberGameResults --- */
+
+#insertNumberGameResults {
+  --color: #560bad;
+  line-height: 2.5em;
+  padding: 1rem;
+  margin: 10rem;
+  border: 2px solid var(--color);
+  font-size: 17px;
+  border-radius: 6px;
+  color: var(--color);
+}
+
+#insertNumberGame h1 {
+  text-align: center;
+}
+
+
+/* --- insertNumberGameResults --- */
