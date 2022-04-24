@@ -8,11 +8,11 @@
     <script src="../js/InsertNumberLogic.js"></script>
     <link rel="stylesheet" href="../css/InsertNumberGame.css">
 
-    <title>MathsHub | Rechnen</title>
+    <title>MathsHub | Umrechnen</title>
 </head>
 <body id="hallo">
 
-
+<!-- Ich liebe mein Leben! D: -->
 <section id="selectLevel">
     <div class="container">
         <h2>Wähle den Schwierigkeitsgrad aus</h2>
@@ -23,14 +23,14 @@
     </div>
 </section>
 
-<section id="insertNumberGame" class="size" style="display: none">
-    <h1 class="center">Rechen-Spiel</h1>
+<section id="convert-NumberGame" class="size" style="display: none">
+    <h1 class="center">Umrechnen-Spiel</h1>
     <form style="display: flex; font-size: 2em;" class="container">
-        <input type="text" maxlength="3" id="value1" value="">
-        <input type="text" id="operator" value="">
-        <input type="text" maxlength="3" id="value2" value="">
+        <input type="text" id="value1" value="">
+        <input type="text" id="operator1" value="">
         <input type="text" value="=">
-        <input type="text" maxlength="3" id="result" value="">
+        <input type="text" id="value2" value="">
+        <input type="text" id="operator2" value="">
     </form>
     <p id="text" class="center"></p>
     <p id="timer" class="center">Timer: <span id="time">unbegrenzt</span></p>
@@ -41,7 +41,7 @@
         <button type="submit" onclick="Done()">Done</button>
     </section>
 </section>
-<section id="insertNumberGameResults" style="display: none">
+<section id="convertNumberGameResults" style="display: none">
     <h1 class="center">Results</h1>
     <p id="tasks"></p>
     <p id="skips"></p>
@@ -49,7 +49,7 @@
     <a href="../index.html">
         <Button>Zurück</Button>
     </a>
-    <a href="insertNumberGame.html">
+    <a href="convertNumberGame.html">
         <Button>Nochmal</Button>
     </a>
 </section>
