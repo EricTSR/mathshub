@@ -23,6 +23,14 @@ function startGame(x) {
 
   new NumberGame("value1", "value2", "operator", "result", level, difficulty);
 
+  if (parseInt(difficulty) >= 2) {
+    timeLeft = 10;
+    countdown();
+    if (parseInt(difficulty) === 3) {
+      setInterval(createDistraction, 300);
+    }
+  }
+
   document.getElementById("text").innerText = "Mhhh, schwierige Aufgabe...";
 }
 
@@ -41,10 +49,24 @@ function newTask() {
 
   //Generate new game
   new NumberGame("value1", "value2", "operator", "result", level, difficulty);
+  console.log("Schwierigkeit:" + difficulty)
+  if (parseInt(difficulty) >= 2) {
+    timeLeft = 10;
+    countdown();
+    if (parseInt(difficulty) === 3) {
+      setInterval(createDistraction, 300);
+    }
+  }
+
+  console.log("Hallo")
 }
 
 
 function submitNumberGame() {
+
+  timeLeft = 1;
+  document.getElementById("time").innerText = "Unbegrenzt!";
+
 
   if (checkLevel("value1", "operator", "value2", "result")) {
     updateText("WoW, super gemacht!")
@@ -52,7 +74,7 @@ function submitNumberGame() {
   } else {
 
     //Update text
-    updateText("You dumb fuck!");
+    updateText("Schade, versuch es doch noch einmal!");
 
     //Update Stats
     updateTriesPlayer();
@@ -111,9 +133,9 @@ function checkLevel(value1, operator, value2, result) {
   console.log(a + op + b + "=" + res);
 
 
-  if              (op === "+" && ((parseInt(a) + parseInt(b)) === parseInt(res))) {
+  if (op === "+" && ((parseInt(a) + parseInt(b)) === parseInt(res))) {
     return true;
-  } else if       (op === "-" && ((parseInt(a) - parseInt(b)) === parseInt(res))) {
+  } else if (op === "-" && ((parseInt(a) - parseInt(b)) === parseInt(res))) {
     return true;
   } else if (op === "*" && (((parseInt(a) * (parseInt(b)) === (parseInt(res)))))) {
     return true;
@@ -137,5 +159,34 @@ function updateGamesPlayer() {
  */
 function updateTriesPlayer() {
   tries++;
+}
+
+
+let timeLeft = 10;
+
+function countdown() {
+  timeLeft--;
+  document.getElementById("time").innerHTML = String(timeLeft);
+  if (timeLeft > 0) {
+    setTimeout(countdown, 1000);
+  }
+  if (timeLeft === 0) {
+    submitNumberGame();
+  }
+
+}
+
+
+function createDistraction() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+  heart.innerText = "🎅";
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 5000)
 }
 
