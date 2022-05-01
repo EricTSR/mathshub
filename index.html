@@ -5,11 +5,13 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <script src="https://kit.fontawesome.com/47f6adc068.js" crossorigin="anonymous"></script>
     <!-- CSS -->
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/card.css">
     <!-- JS -->
     <script src="js/index.js"></script>
+
 </head>
 <body onload="setup()">
 <form id="form">
@@ -30,30 +32,82 @@
 </form>
 
 <nav id="navbar">
-    <h2>MathsHub</h2>
+    <h2>Maths <span>hub</span></h2>
     <ul>
-        <li><a href="#">Name: <span id="nav_user">unknown</span> </a></li>
-        <li><a href="#">Klasse: <span id="nav_klasse">unknown</span></a></li>
+        <li class="items"><a href="#"><span id="nav_user">unknown</span> </a></li>
+        <li class="items"><a href="#">Klasse: <span id="nav_klasse">unknown</span></a></li>
+        <li class="items">
+            <div style="cursor: pointer;" id="logout" onclick="logout()"><img style="width: 27px; color: #ffffff"
+                                                                              src="img/right-from-bracket-solid.svg"
+                                                                              alt="dd"></div>
+        </li>
     </ul>
 </nav>
 
-<section id="games" style="display: none;">
-    <h1 id="header">Suche dir ein Spiel aus!</h1>
+<h1 id="textH1">Suche dir ein Spiel aus!</h1>
+
+<section id="games" style="display: none; align-content: center">
     <div id="games_selection">
         <div id="game_calculate" class="container">
-            <h3 id="tags_calculate"></h3>
-            <h2>Rechnen</h2>
-            <p>Hier kannst du Kopfrechnen üben, dass ist wichtig für dein späteres Leben, ganz sicher!</p>
-            <button type="button" onclick="playCal()">Spielen</button>
+            <div class="card" onclick="playCal()">
+                <div class="card-image"></div>
+                <div class="card-text">
+                    <span class="date">Rechen</span>
+                    <h2 style="color:#ffffff;">Mathe - Guru</h2>
+                    <p>Hier kannst du Kopfrechnen trainieren, dass ist sehr wichtig in Bezug auf deine Zukunft...
+                        hoffentlich!</p>
+                </div>
+                <div class="card-stats">
+                    <div class="stat">
+                        <div class="value">4</div>
+                        <div class="type">Stufen</div>
+                    </div>
+                    <div class="stat border">
+                        <div class="value">+ | - | * | /</div>
+                        <div class="type" style="font-size: 0.8rem">Rechenvarianten</div>
+                    </div>
+                    <div class="stat border">
+                        <div class="value">Klasse</div>
+                        <div class="type">1-4</div>
+                    </div>
+                </div>
+            </div>
         </div>
+
         <div id="game_units" class="container">
-            <h3 id="tags_units"></h3>
-            <h2>Umrechnen</h2>
-            <p>Hier kannst du Umrechnen üben, dass ist besonders wichtig in Physik, glaub mir...</p>
-            <button type="button" onclick="playUnits()">Spielen</button>
+            <div class="card" onclick="playUnits()">
+                <div class="card-image" style="background: url('img/img2.jpeg');   background-size: cover;"></div>
+                <div class="card-text">
+                    <span class="date">Umrechnen</span>
+                    <h2 style="color:#ffffff;">Umrechner</h2>
+                    <p>Hier kannst du Umrechnen aneignen, auf dem Bau ist dies essenzielle und oft benutze Technik!</p>
+                </div>
+                <div class="card-stats">
+                    <div class="stat">
+                        <div class="value">4</div>
+                        <div class="type">Stufen</div>
+                    </div>
+                    <div class="stat border">
+                        <div class="value">km <> mm</div>
+                        <div class="type">Umrechnen</div>
+                    </div>
+                    <div class="stat border">
+                        <div class="value">Klasse</div>
+                        <div class="type">4</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
+
+<!-- Site footer -->
+<footer class="site-footer">
+    <p class="copyright-text">Copyright &copy; 2022 All Rights Reserved by
+        <a href="https://github.com/EricTSR">EricTSR</a> and <a href="https://www.instagram.com/Mongraal/">Veit</a>.
+    </p>
+</footer>
 
 
 </body>

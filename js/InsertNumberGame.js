@@ -117,7 +117,6 @@ function updateText(text) {
 function nextTask() {
   newTask();
   skips++;
-  console.log("SKips" + skips)
 }
 
 /**
@@ -142,7 +141,6 @@ function checkLevel(value1, operator, value2, result) {
   } else if (op === "/" && ((parseInt(a) / parseInt(b)) === (parseInt(res)))) {
     return true;
   } else {
-    console.log("Du dummer HS")
   }
 
 }

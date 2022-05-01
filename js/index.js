@@ -1,12 +1,23 @@
 //User
 let name = "unknown";
-let grade = 0;
+let grade = null;
 
 
 function setup() {
   document.getElementById("error").style.display = "none";
+  document.getElementById("textH1").style.display = "none";
   changeWindow(0);
+
+  if (grade < 4) {
+    document.getElementById("game_units").style.display = "none";
+  }
 }
+
+function logout() {
+  localStorage.clear();
+  setup();
+}
+
 
 function chooseGrade(x) {
   document.getElementById("grade1").style.backgroundColor = "rgba(255, 255, 255, 0.47)";
@@ -14,24 +25,19 @@ function chooseGrade(x) {
   document.getElementById("grade3").style.backgroundColor = "rgba(255, 255, 255, 0.47)";
   document.getElementById("grade4").style.backgroundColor = "rgba(255, 255, 255, 0.47)";
 
-  document.getElementById("grade" + x).style.backgroundColor = "rgb(248, 169, 42)";
+  document.getElementById("grade" + x).style.backgroundColor = "rgb(255, 7, 110)";
   grade = x;
   localStorage.setItem("vOneLocalStorage", x);
 }
 
 function createUser() {
   name = document.getElementById("username").value;
-  if (name === "") {
-    document.getElementById("error").style.display = "grid";
-    document.getElementById("error").innerText = "Error: Bitte suche dir einen Namen aus!";
-  }
-
-  if (grade === 0) {
-    document.getElementById("error").style.display = "grid";
-    document.getElementById("error").innerText = "Error: Bitte wähle deine Klasse aus!";
-  }
 
   if (name === "") {
+    name = "CooleBanane"
+  }
+
+  if (grade === "") {
     name = "CooleBanane"
   }
 
@@ -46,6 +52,7 @@ function createUser() {
   document.getElementById("nav_klasse").innerHTML = grade;
 
   changeWindow(1);
+  location.reload();
 
 }
 
@@ -62,11 +69,16 @@ function changeWindow(x) {
   if (x === 0 && name === null) {
     console.log("hello")
     document.getElementById("form").style.display = "block";
+    document.getElementById("navbar").style.display = "none";
     document.getElementById("games").style.display = "none";
+    document.getElementById("textH1").style.display = "none";
   } else {
     document.getElementById("form").style.display = "none";
-    document.getElementById("games").style.display = "inline";
+    document.getElementById("navbar").style.display = "flex";
+    document.getElementById("games").style.display = "flex";
+    document.getElementById("textH1").style.display = "block";
   }
+
 }
 
 function playCal() {
@@ -74,6 +86,6 @@ function playCal() {
 }
 
 function playUnits() {
-  location.replace('/neue-seite.htm');
+  location.replace("sites/convertNumberGame.html");
 }
 

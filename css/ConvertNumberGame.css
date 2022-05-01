@@ -107,6 +107,7 @@ button:active:before {
   transition: background 0s;
 }
 
+
 input:focus, textarea:focus, select:focus{
   outline: none;
 }
@@ -115,13 +116,25 @@ input:focus, textarea:focus, select:focus{
   background-color: #fcab10;
 }
 
-.container input:nth-last-child(3) {
+.container input:nth-last-child(2) {
   background-color: #00A1E4;
+  width: 15rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 .container input:last-child {
   border-radius: 15px;
-  background-color: #706993;
+  //background-color: #706993;
 }
 
 .container input {
@@ -146,17 +159,6 @@ input:focus, textarea:focus, select:focus{
 
 #insertNumberGame h1 {
   text-align: center;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
 }
 
 
