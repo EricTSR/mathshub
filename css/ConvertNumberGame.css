@@ -2,6 +2,7 @@
 
 * {
   font-family: 'Arimo', sans-serif;
+  background-color: #131313;
 }
 
 .heart {
@@ -23,7 +24,7 @@
 /* --- insertNumberGame --- */
 
 #insertNumberGame {
-  --color: #560bad;
+  --color: #FF076EFF;
   line-height: 2.5em;
   padding: 1rem;
   margin: 10rem;
@@ -59,7 +60,7 @@
 }
 
 button {
-  --color: #560bad;
+  --color: #FF076EFF;
   font-family: inherit;
   display: inline-block;
   width: 8em;
@@ -103,7 +104,7 @@ button:hover:before {
 }
 
 button:active:before {
-  background: #3a0ca3;
+  background: rgb(255, 7, 110);
   transition: background 0s;
 }
 
@@ -114,11 +115,17 @@ input:focus, textarea:focus, select:focus{
 
 .container input:first-child {
   background-color: #fcab10;
+  color: #000;
+}
+.container input{
+  background-color: #fcab10;
+  color: #FF076EFF;
 }
 
 .container input:nth-last-child(2) {
   background-color: #00A1E4;
   width: 15rem;
+  color: #000;
 }
 
 input::-webkit-outer-spin-button,
@@ -135,6 +142,7 @@ input[type=number] {
 .container input:last-child {
   border-radius: 15px;
   //background-color: #706993;
+  color: #FF076EFF;
 }
 
 .container input {
@@ -147,7 +155,7 @@ input[type=number] {
 /* --- insertNumberGameResults --- */
 
 #insertNumberGameResults {
-  --color: #560bad;
+  --color: rgb(255, 7, 110);;
   line-height: 2.5em;
   padding: 1rem;
   margin: 10rem;
@@ -165,7 +173,7 @@ input[type=number] {
 /* --- insertNumberGameResults --- */
 
 #convertNumberGameResults {
-  --color: #560bad;
+  --color: #FF076EFF;
   line-height: 2.5em;
   padding: 1rem;
   margin: 10rem;
@@ -180,7 +188,7 @@ input[type=number] {
 }
 
 #convert-NumberGame {
-  --color: #560bad;
+  --color: #FF076EFF;
   line-height: 2.5em;
   padding: 1rem;
   margin: 10rem;

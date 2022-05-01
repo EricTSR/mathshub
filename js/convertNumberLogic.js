@@ -22,6 +22,7 @@ class ConvertGame {
 
   generateM() {
     let units = ['km', 'm', 'cm', 'mm'];
+    let unites2 = ['t', 'kg', 'g', 'mg'];
 
 
     let unit1 = this.getRandomInt(units.length);
@@ -38,7 +39,7 @@ class ConvertGame {
     this.aOp = units[unit1];
     this.bOp = units[unit2];
 
-    console.log(number + units[unit1] + "= ???" + units[unit2]);
+    console.log(number + units[unit1] + " = ???" + units[unit2]);
 
 
   }
