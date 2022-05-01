@@ -109,7 +109,7 @@ button:active:before {
 }
 
 
-input:focus, textarea:focus, select:focus{
+input:focus, textarea:focus, select:focus {
   outline: none;
 }
 
@@ -117,7 +117,8 @@ input:focus, textarea:focus, select:focus{
   background-color: #fcab10;
   color: #000;
 }
-.container input{
+
+.container input {
   background-color: #fcab10;
   color: #FF076EFF;
 }
@@ -141,7 +142,7 @@ input[type=number] {
 
 .container input:last-child {
   border-radius: 15px;
-  //background-color: #706993;
+/ / background-color: #706993;
   color: #FF076EFF;
 }
 

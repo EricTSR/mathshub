@@ -1,13 +1,13 @@
 .card:hover {
   transform: scale(1.15);
-  box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
 }
+
 .card {
 
-...
-transition: 0.5s ease;
+. . . transition: 0.5 s ease;
   cursor: pointer;
-  margin:30px;
+  margin: 30px;
 }
 
 .card-stats .stat {
@@ -17,7 +17,7 @@ transition: 0.5s ease;
   flex-direction: column;
 
   color: white;
-  padding:10px;
+  padding: 10px;
 }
 
 .card-stats {
@@ -36,18 +36,21 @@ transition: 0.5s ease;
   margin: 25px;
   color: #ffffff !important;
 }
+
 .card-text .date {
   color: rgb(255, 7, 110);
-  font-size:13px;
+  font-size: 13px;
 }
+
 .card-text p {
   color: grey;
-  font-size:15px;
+  font-size: 15px;
   font-weight: 300;
 }
+
 .card-text h2 {
-  margin-top:0px;
-  font-size:28px;
+  margin-top: 0px;
+  font-size: 28px;
 }
 
 .card-image {
@@ -62,9 +65,11 @@ transition: 0.5s ease;
 .card-image {
   grid-area: image;
 }
+
 .card-text {
   grid-area: text;
 }
+
 .card-stats {
   grid-area: stats;
 }

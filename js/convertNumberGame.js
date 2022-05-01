@@ -107,13 +107,13 @@ function checkLevel(value1, operator1, value2, operator2) {
   let op2 = document.getElementById(operator2).value;
 
   if (op1 === "km") {
-    return  checkKM(v1, v2, op2);
+    return checkKM(v1, v2, op2);
   } else if (op1 === "m") {
-    return  checkM(v1, v2, op2);
+    return checkM(v1, v2, op2);
   } else if (op1 === "cm") {
-    return  checkCM(v1, v2, op2)
+    return checkCM(v1, v2, op2)
   } else if (op1 === "mm") {
-    return  checkMM(v1, v2, op2)
+    return checkMM(v1, v2, op2)
   }
 }
 
@@ -131,10 +131,10 @@ function checkKM(x, v2, op2) {
 }
 
 function checkM(x, v2, op2) {
-  console.log("x:", x , "v2:", v2, "op2:", op2)
+  console.log("x:", x, "v2:", v2, "op2:", op2)
   switch (op2) {
     case "km":
-      console.log(x/1000);
+      console.log(x / 1000);
       console.log(v2);
       return x / 1000 === v2;
     case "cm":

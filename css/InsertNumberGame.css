@@ -108,10 +108,9 @@ button:active:before {
   transition: background 0s;
 }
 
-input:focus, textarea:focus, select:focus{
+input:focus, textarea:focus, select:focus {
   outline: none;
 }
-
 
 
 .container input:first-child {

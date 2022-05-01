@@ -14,17 +14,17 @@
 </head>
 <body onload="setup()">
 <form id="form">
-    <h3>Login</h3>
+    <h2>Maths <span>hub</span></h2>
 
     <label for="username">Dein Benutzername</label>
     <input type="text" placeholder="Benutzername" id="username" required>
 
     <label>Deine Klasse</label>
     <div id="grades">
-        <div id="grade1" onclick="chooseGrade(1)">Klasse <br/> 1</div>
+        <div id="grade1" onclick="chooseGrade(1)">Klasse <br/>1</div>
         <div id="grade2" onclick="chooseGrade(2)">Klasse <br/>2</div>
         <div id="grade3" onclick="chooseGrade(3)">Klasse <br/>3</div>
-        <div id="grade4" onclick="chooseGrade(4)">Klasse <br/> 4</div>
+        <div id="grade4" onclick="chooseGrade(4)">Klasse <br/>4</div>
     </div>
     <button type="button" id="button" onclick="createUser()">Log In</button>
     <p id="error">Error:</p>

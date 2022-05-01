@@ -1,6 +1,7 @@
 //User
 let name = "unknown";
 let grade = null;
+let check = false;
 
 
 function setup() {
@@ -27,32 +28,41 @@ function chooseGrade(x) {
 
   document.getElementById("grade" + x).style.backgroundColor = "rgb(255, 7, 110)";
   grade = x;
+  check = true;
+
   localStorage.setItem("vOneLocalStorage", x);
 }
 
 function createUser() {
   name = document.getElementById("username").value;
 
-  if (name === "") {
-    name = "CooleBanane"
+  if (check) {
+    if (name === "") {
+      name = "CooleBanane"
+    }
+
+    if (grade === "") {
+      name = "CooleBanane"
+    }
+
+    localStorage.setItem("name", name);
+    localStorage.setItem("klasse", grade);
+
+    if (grade === 0) {
+      grade = 1;
+    }
+
+    document.getElementById("nav_user").innerHTML = name;
+    document.getElementById("nav_klasse").innerHTML = grade;
+
+    changeWindow(1);
+    location.reload();
+
+  } else {
+    document.getElementById("error").style.display = "block";
+    document.getElementById("error").innerHTML = "Vergiss die Wahl der Klassenstufe nicht!";
   }
 
-  if (grade === "") {
-    name = "CooleBanane"
-  }
-
-  localStorage.setItem("name", name);
-  localStorage.setItem("klasse", grade);
-
-  if (grade === 0) {
-    grade = 1;
-  }
-
-  document.getElementById("nav_user").innerHTML = name;
-  document.getElementById("nav_klasse").innerHTML = grade;
-
-  changeWindow(1);
-  location.reload();
 
 }
 
@@ -72,11 +82,13 @@ function changeWindow(x) {
     document.getElementById("navbar").style.display = "none";
     document.getElementById("games").style.display = "none";
     document.getElementById("textH1").style.display = "none";
+    document.getElementById("error").style.display = "none";
   } else {
     document.getElementById("form").style.display = "none";
     document.getElementById("navbar").style.display = "flex";
     document.getElementById("games").style.display = "flex";
     document.getElementById("textH1").style.display = "block";
+    document.getElementById("error").style.display = "block";
   }
 
 }
