@@ -11,6 +11,7 @@ function setup() {
 
   if (grade < 4) {
     document.getElementById("game_units").style.display = "none";
+    document.getElementById("game_estimate").style.display = "none";
   }
 }
 

@@ -114,8 +114,71 @@ function checkLevel(value1, operator1, value2, operator2) {
     return checkCM(v1, v2, op2)
   } else if (op1 === "mm") {
     return checkMM(v1, v2, op2)
+  } else if (op1 === "t") {
+    return checkT(v1, v2, op2)
+  } else if (op1 === "kg") {
+    return checkKg(v1, v2, op2)
+  } else if (op1 === "mg") {
+    return checkMG(v1, v2, op2)
+  } else if (op1 === "g") {
+    return checkG(v1, v2, op2)
+  }
+
+
+}
+
+function checkT(x, v2, op2) {
+  switch (op2) {
+    case "kg":
+      return x * 1000 === v2;
+    case "g":
+      return x * 1_000_000 === v2;
+    case "mg":
+      return x * 1_000_000_000 === v2;
+    default:
+      console.log("Smh! T")
   }
 }
+
+function checkKg(x, v2, op2) {
+  switch (op2) {
+    case "t":
+      return x / 1000 === v2;
+    case "g":
+      return x * 1000 === v2;
+    case "mg":
+      return x * 1_000_000 === v2;
+    default:
+      console.log("Smh! T")
+  }
+}
+
+function checkG(x, v2, op2) {
+  switch (op2) {
+    case "t":
+      return x / 1000_000 === v2;
+    case "kg":
+      return x / 1000 === v2;
+    case "mg":
+      return x * 1000 === v2;
+    default:
+      console.log("Smh! T")
+  }
+}
+
+function checkMG(x, v2, op2) {
+  switch (op2) {
+    case "t":
+      return x / 1_000_000_000 === v2;
+    case "kg":
+      return x / 1_000_000 === v2;
+    case "g":
+      return x * 1000 === v2;
+    default:
+      console.log("Smh! T")
+  }
+}
+
 
 function checkKM(x, v2, op2) {
   switch (op2) {

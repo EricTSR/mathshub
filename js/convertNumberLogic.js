@@ -16,34 +16,45 @@ class ConvertGame {
 
   generateLevel() {
     this.generateM();
-
-
   }
 
   generateM() {
+
+    console.log(this.difference())
     let units = ['km', 'm', 'cm', 'mm'];
     let unites2 = ['t', 'kg', 'g', 'mg'];
+    console.log(this.difference(10, 100))
 
-
+    //Nummer get
     let unit1 = this.getRandomInt(units.length);
     let unit2 = this.getRandomInt(units.length);
-    let number = this.getRandomInt(10);
 
-    while (unit2 === unit1) {
+    //3 2
+
+    while (unit2 === unit1 || this.difference(unit1, unit2) > 1) {
+      console.log("--------TRY--------")
+      console.log("1st", unit2 === unit1)
+      console.log("2cd", this.difference(unit1, unit2) <= 1, this.difference(unit1, unit2) )
       unit1 = this.getRandomInt(units.length);
       unit2 = this.getRandomInt(units.length);
     }
 
     //set number for conversion
-    this.a = number;
-    this.aOp = units[unit1];
-    this.bOp = units[unit2];
+    this.a = (this.getRandomInt(10) + 1).toString();
 
-    console.log(number + units[unit1] + " = ???" + units[unit2]);
-
+    let random = this.getRandomInt(2);
+    if (random === 0) {
+      this.aOp = units[unit1];
+      this.bOp = units[unit2];
+    } else {
+      this.aOp = unites2[unit1];
+      this.bOp = unites2[unit2];
+    }
 
   }
 
+
+  difference = function (a, b) { return Math.abs(a - b); }
 
   /**
    * Generate the finished Task
