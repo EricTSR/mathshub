@@ -85,8 +85,8 @@ nav a span {
 }
 
 form {
-  height: 45%;
-  width: 20%;
+  height: 55%;
+  width: 25%;
   background-color: rgba(255, 255, 255, 0.13);
   position: absolute;
   transform: translate(-50%, -50%);
@@ -94,12 +94,12 @@ form {
   left: 50%;
   backdrop-filter: blur(10px);
   border: 2px solid rgba(255, 255, 255, 0.1);
-  padding: 50px 35px;
+  padding: 2rem 3rem;
 
   border-radius: 18px;
   background-color: #232323;
   box-shadow: 0 15px 60px rgba(0, 0, 0, 0.5);
-  font-family: roboto;
+  font-family: roboto, serif;
 }
 
 form * {
