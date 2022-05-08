@@ -79,7 +79,7 @@
   grid-template-columns: 300px;
   grid-template-rows: 210px 210px 80px;
   grid-template-areas: "image" "text" "stats";
-
+  margin-bottom: 3rem;
   border-radius: 18px;
   background-color: #232323;
   box-shadow: 0 15px 60px rgba(0, 0, 0, 0.5);

@@ -79,12 +79,15 @@ function changeWindow(x) {
 
   if (x === 0 && name === null) {
     document.getElementById("form").style.display = "block";
+    document.getElementById("site-footer").style.display = "block";
     document.getElementById("navbar").style.display = "none";
     document.getElementById("games").style.display = "none";
     document.getElementById("textH1").style.display = "none";
     document.getElementById("error").style.display = "none";
+
   } else {
     document.getElementById("form").style.display = "none";
+    document.getElementById("site-footer").style.display = "none";
     document.getElementById("navbar").style.display = "flex";
     document.getElementById("games").style.display = "flex";
     document.getElementById("textH1").style.display = "block";
