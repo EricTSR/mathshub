@@ -3,15 +3,14 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="../js/InsertNumberGame.js"></script>
-    <script src="../js/InsertNumberLogic.js"></script>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <script src="../js/estimateGame.js"></script>
+    <script src="../js/estimateLogic.js"></script>
     <link href="../css/Game.css" rel="stylesheet">
 
     <title>MathsHub | Rechnen</title>
 </head>
 <body id="hallo">
-
 
 <section id="selectLevel">
     <div class="container">
@@ -24,21 +23,21 @@
 </section>
 
 <section class="size" id="gameDisplay" style="display: none">
-    <h1 class="center">Rechen-Spiel</h1>
-    <form style="display: flex; font-size: 2em;" class="container">
-        <input type="number" maxlength="3" id="value1" value="">
-        <input type="text" id="operator" value="">
-        <input type="number" maxlength="3" id="value2" value="">
+    <h1 class="center">Ueberschlag-Spiel</h1>
+    <form class="container" style="display: flex; font-size: 2em;">
+        <input id="value1" maxlength="3" type="number" value="">
+        <input id="operator" type="text" value="">
+        <input id="value2" maxlength="3" type="number" value="">
         <input type="text" value="=">
-        <input type="number" maxlength="3" id="result" value="">
+        <input id="result" maxlength="3" type="number" value="">
     </form>
-    <p id="text" class="center"></p>
-    <p id="timer" class="center">Timer: <span id="time">unbegrenzt</span></p>
+    <p class="center" id="text"></p>
+    <p class="center" id="timer">Timer: <span id="time">unbegrenzt</span></p>
 
     <section class="container">
-        <button type="submit" onclick="submitNumberGame()">Check</button>
-        <button type="submit" onclick="nextTask()" id="nextTaskBtn">Next Task</button>
-        <button type="submit" onclick="Done()">Done</button>
+        <button onclick="submitEstimateGame()" type="submit">Check</button>
+        <button id="nextTaskBtn" onclick="nextTask()" type="submit">Next Task</button>
+        <button onclick="Done()" type="submit">Done</button>
     </section>
 </section>
 <section id="gameResults" style="display: none">
@@ -49,7 +48,7 @@
     <a href="../index.html">
         <Button>Zurück</Button>
     </a>
-    <a href="insertNumberGame.html">
+    <a href="estimateGame.html">
         <Button>Nochmal</Button>
     </a>
 </section>

@@ -21,7 +21,8 @@ function startGame(x) {
   document.getElementById("gameResults").style.display = "none";
   document.getElementById("gameDisplay").style.display = "block";
 
-  new NumberGame("value1", "value2", "operator", "result", level, difficulty);
+
+  new EstimateGame("value1", "value2", "operator", "result", level, difficulty);
 
   if (parseInt(difficulty) >= 2) {
     timeLeft = 10;
@@ -48,18 +49,17 @@ function newTask() {
   updateText("Mhhh, schwierige Aufgabe...");
 
   //Generate new game
-  new NumberGame("value1", "value2", "operator", "result", level, difficulty);
+  new EstimateGame("value1", "value2", "operator", "result", level, difficulty);
   console.log("Schwierigkeit:" + difficulty)
   if (parseInt(difficulty) >= 2) {
     timeLeft = 10;
     countdown();
   }
 
-  console.log("Hallo")
 }
 
 
-function submitNumberGame() {
+function submitEstimateGame() {
 
   timeLeft = 1;
   document.getElementById("time").innerText = "Unbegrenzt!";
@@ -126,21 +126,48 @@ function checkLevel(value1, operator, value2, result) {
   let b = document.getElementById(value2).value;
   let res = document.getElementById(result).value;
 
-  console.log(a + op + b + "=" + res);
+  console.log("Aufgabe:" + a + op + b + "=" + res);
 
+  return (res >= roundNumber(a, b, op) * 0.75 && res <= roundNumber(a, b, op) * 1.25)
+}
 
-  if (op === "+" && ((parseInt(a) + parseInt(b)) === parseInt(res))) {
-    return true;
-  } else if (op === "-" && ((parseInt(a) - parseInt(b)) === parseInt(res))) {
-    return true;
-  } else if (op === "*" && (((parseInt(a) * (parseInt(b)) === (parseInt(res)))))) {
-    return true;
-  } else if (op === "/" && ((parseInt(a) / parseInt(b)) === (parseInt(res)))) {
-    return true;
+function getlength(number) {
+  return number.toString().length;
+}
+
+function roundNumber(x1, x2, op) {
+  let exponent = 0;
+  if (x1 > x2) {
+    exponent = getlength(x2) - 1;
+
   } else {
+    exponent = getlength(x1) - 1
   }
 
+  let faktor = Math.pow(10, exponent);
+
+  console.log(exponent)
+
+  x1 = Math.round(x1 / faktor) * faktor;
+  x2 = Math.round(x2 / faktor) * faktor;
+  console.log(x1 + "|" + x2)
+
+  if (op === "+") {
+    return x1 + x2;
+  } else if (op === "-") {
+    return x1 - x2;
+  } else if (op === "*") {
+    if (x1 === 0) {
+      x1 = 1;
+    } else if (x2 === 0) {
+      x2 = 1;
+    }
+    return x1 * x2;
+  } else if (op === "/") {
+    return x1 / x2;
+  }
 }
+
 
 /**
  * Updates player played games count
@@ -166,7 +193,7 @@ function countdown() {
     setTimeout(countdown, 1000);
   }
   if (timeLeft === 0) {
-    submitNumberGame();
+    submitEstimateGame();
   }
 
 }

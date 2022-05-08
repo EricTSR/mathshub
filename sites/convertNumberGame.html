@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="../js/convertNumberGame.js"></script>
     <script src="../js/convertNumberLogic.js"></script>
-    <link rel="stylesheet" href="../css/ConvertNumberGame.css">
+    <link href="../css/Game.css" rel="stylesheet">
 
     <title>MathsHub | Umrechnen</title>
 </head>
 <body id="hallo" onload="startGame()">
 
-<section id="convert-NumberGame" class="size">
+<section class="size" id="gameDisplay">
     <h1 class="center">Umrechnen-Spiel</h1>
     <form style="display: flex; font-size: 2em;" class="container">
         <input type="text" id="value1" value="">
@@ -28,7 +28,7 @@
         <button type="submit" onclick="Done()">Done</button>
     </section>
 </section>
-<section id="convertNumberGameResults" style="display: none">
+<section id="gameResults" style="display: none">
     <h1 class="center">Results</h1>
     <p id="tasks"></p>
     <p id="skips"></p>

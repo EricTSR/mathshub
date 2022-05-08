@@ -78,7 +78,6 @@ function changeWindow(x) {
   console.log(x)
 
   if (x === 0 && name === null) {
-    console.log("hello")
     document.getElementById("form").style.display = "block";
     document.getElementById("navbar").style.display = "none";
     document.getElementById("games").style.display = "none";
@@ -100,5 +99,9 @@ function playCal() {
 
 function playUnits() {
   location.replace("sites/convertNumberGame.html");
+}
+
+function playEstimate() {
+  location.replace("sites/estimateGame.html");
 }
 

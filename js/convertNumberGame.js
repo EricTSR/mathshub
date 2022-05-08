@@ -13,8 +13,8 @@ let taskTries = 0;
 function startGame() {
 
   document.getElementById("nextTaskBtn").style.visibility = "hidden";
-  document.getElementById("convertNumberGameResults").style.display = "none";
-  document.getElementById("convert-NumberGame").style.display = "block";
+  document.getElementById("gameResults").style.display = "none";
+  document.getElementById("gameDisplay").style.display = "block";
 
   new ConvertGame("value1", "operator1", "value2", "operator2");
 
@@ -70,8 +70,8 @@ function submitNumberGame() {
  */
 function Done() {
   //change menu
-  document.getElementById("convert-NumberGame").style.display = "none";
-  document.getElementById("convertNumberGameResults").style.display = "inherit";
+  document.getElementById("gameDisplay").style.display = "none";
+  document.getElementById("gameResults").style.display = "inherit";
 
   //Set stats
   document.getElementById("tasks").innerText = "Aufgaben gelöst: " + games;

@@ -5,25 +5,9 @@
   background-color: #131313;
 }
 
-.heart {
-  position: fixed;
-  top: -1vh;
-  font-size: 2rem;
-  transform: translateY(0);
-  animation: fall 4s linear forwards;
-}
-
-@keyframes fall {
-  to {
-    transform: translateY(101vh);
-  }
-
-}
-
-
 /* --- insertNumberGame --- */
 
-#insertNumberGame {
+#gameDisplay {
   --color: #ff076e;
   line-height: 2.5em;
   padding: 1rem;
@@ -40,6 +24,11 @@
   align-items: center;
 }
 
+
+#selectLevel h2 {
+  color: #fff;
+}
+
 .center {
   text-align: center;
   justify-content: center;
@@ -49,6 +38,59 @@
 #text {
   font-size: 1.5rem;
 }
+
+
+/* --- insertNumberGame --- */
+
+/* --- insertNumberGameResults --- */
+
+#gameDisplay h1 {
+  text-align: center;
+}
+
+
+/* --- insertNumberGameResults --- */
+
+#gameResults {
+  --color: #FF076EFF;
+  line-height: 2.5em;
+  padding: 1rem;
+  margin: 10rem;
+  border: 2px solid var(--color);
+  font-size: 17px;
+  border-radius: 6px;
+  color: var(--color);
+}
+
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.heart {
+  position: fixed;
+  top: -1vh;
+  font-size: 2rem;
+  transform: translateY(0);
+  animation: fall 4s linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(101vh);
+  }
+
+}
+
 
 .container input {
   border-radius: 15px;
@@ -136,24 +178,7 @@ input:focus, textarea:focus, select:focus {
   background-color: transparent;
 }
 
-/* --- insertNumberGame --- */
-
-/* --- insertNumberGameResults --- */
-
-#insertNumberGameResults {
-  --color: #ff076e;
-  line-height: 2.5em;
-  padding: 1rem;
-  margin: 10rem;
-  border: 2px solid var(--color);
-  font-size: 17px;
-  border-radius: 6px;
-  color: var(--color);
-}
-
-#insertNumberGame h1 {
-  text-align: center;
-}
+/* INPUT FIELDS*/
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -165,33 +190,3 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
-
-
-/* --- insertNumberGameResults --- */
-
-#convertNumberGameResults {
-  --color: #FF076EFF;
-  line-height: 2.5em;
-  padding: 1rem;
-  margin: 10rem;
-  border: 2px solid var(--color);
-  font-size: 17px;
-  border-radius: 6px;
-  color: var(--color);
-}
-
-#insertNumberGame h1 {
-  text-align: center;
-}
-
-#convert-NumberGame {
-  --color: #ff076e;
-  line-height: 2.5em;
-  padding: 1rem;
-  margin: 10rem;
-  border: 2px solid var(--color);
-  font-size: 17px;
-  border-radius: 6px;
-  color: var(--color);
-}
-

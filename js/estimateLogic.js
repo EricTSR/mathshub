@@ -1,4 +1,4 @@
-class NumberGame {
+class EstimateGame {
   constructor(aID, bID, opID, resultID, level, difficulty) {
     this.a = "X";
     this.operator = "";
@@ -31,7 +31,7 @@ class NumberGame {
         this.setUpSubtractionGame()
       }
     } else if (this.level === 2 || this.level === 3) {
-      temp = this.getRandomInt(4);
+      temp = this.getRandomInt(3);
       if (temp === 0) {
         this.operator = "+";
         this.setUpAdditionGame();
@@ -53,33 +53,12 @@ class NumberGame {
 
 
   setUpSubtractionGame() {
-    let temp = this.getRandomInt(2);
-
-    if (temp === 0) {
-      //a - [x] = result
+    this.a = this.getRandomInt((this.range));
+    this.b = this.getRandomInt(this.range);
+    while ((this.a - this.b) < 0 || this.a === 0 || this.b === 0) {
       this.a = this.getRandomInt((this.range));
-      this.result = this.getRandomInt((this.range));
-      while (this.a <= this.result) {
-        this.a = this.getRandomInt((this.range));
-      }
+      this.b = this.getRandomInt((this.range));
 
-    } else if (temp === 1) {
-      //[x] - b = result
-      this.b = this.getRandomInt(this.range);
-      this.result = this.getRandomInt(this.range);
-
-      while (this.b > this.result) {
-        this.b = this.getRandomInt(this.range);
-      }
-
-    } else if (temp === 2) {
-      //a - b = [x]
-      this.a = this.getRandomInt((this.range));
-      this.b = this.getRandomInt(this.range);
-      while ((this.a - this.b) < 0) {
-        this.a = this.getRandomInt((this.range));
-        this.b = this.getRandomInt((this.range));
-      }
     }
   }
 
@@ -87,37 +66,13 @@ class NumberGame {
    * Set generate  addition game with a specific range
    */
   setUpAdditionGame() {
+    this.a = this.getRandomInt(this.range);
+    this.b = this.getRandomInt(this.range);
 
-
-    let temp = this.getRandomInt(3);
-
-    if (temp === 0) {
-      //a + [x] = result
-      this.result = this.getRandomInt((this.range));
-      this.a = this.getRandomInt((this.range));
-
-      while (this.result < this.a) {
-        this.a = this.getRandomInt((this.range));
-      }
-
-    } else if (temp === 1) {
-      //[x] + b = result
-      this.result = this.getRandomInt((this.range));
-      this.b = this.getRandomInt((this.range));
-
-      while (this.result < this.b) {
-        this.b = this.getRandomInt((this.range));
-      }
-
-    } else if (temp === 2) {
-      //a + b = [x]
+    while ((this.a + this.b) >= this.range || this.a === 0 || this.b === 0) {
       this.a = this.getRandomInt(this.range);
       this.b = this.getRandomInt(this.range);
 
-      while ((this.a + this.b) >= this.range) {
-        this.a = this.getRandomInt(this.range);
-        this.b = this.getRandomInt(this.range);
-      }
     }
   }
 
@@ -192,56 +147,23 @@ class NumberGame {
    * Set generate  multiply game with a specific range
    */
   setUpMultiplyGame() {
-
-    let temp = this.getRandomInt(2);
-
-    if (temp === 0) {
-      //a * [x] = result
-      this.a = this.getRandomInt(this.range);
-      this.result = this.getRandomInt(this.range);
-
-      while (this.result % this.a !== 0) {
-        this.a = this.getRandomInt(this.range);
-        this.result = this.getRandomInt(this.range);
-      }
-
-    } else if (temp === 1) {
-      //[x] * b = result
-      this.b = this.getRandomInt(this.range);
-      this.result = this.getRandomInt(this.range);
-
-      while (this.result % this.b !== 0) {
-        this.b = this.getRandomInt(this.range);
-        this.result = this.getRandomInt(this.range);
-      }
-
-    } else {
-      //a * b = [x]
-      //ToDo: Optimieren
+    this.a = this.getRandomInt(this.range);
+    this.b = this.getRandomInt(this.range);
+    while ((this.a * this.b) >= this.range || this.a === 0 || this.b === 0) {
       this.a = this.getRandomInt(this.range);
       this.b = this.getRandomInt(this.range);
-      while ((this.a * this.b) >= this.range) {
-        this.a = this.getRandomInt(this.range);
-        this.b = this.getRandomInt(this.range);
-      }
     }
-
   }
 
   /**
    * Set generate  multiply game with a specific range
    */
   setUpDivideGame() {
-
-    //a / b = [x]
     this.a = this.getRandomInt(this.range);
     this.b = this.getRandomInt(this.range);
-    while (this.a % this.b !== 0) {
+    while (this.a % this.b !== 0 || this.a === 0 || this.b === 0) {
       this.a = this.getRandomInt(this.range);
       this.b = this.getRandomInt(this.range);
-
     }
-
-
   }
 }
