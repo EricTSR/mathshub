@@ -23,7 +23,7 @@
 </section>
 
 <section class="size" id="gameDisplay" style="display: none">
-    <h1 class="center">Ueberschlag-Spiel</h1>
+    <h1 class="center">Überschlag-Spiel</h1>
     <form class="container" style="display: flex; font-size: 2em;">
         <input id="value1" maxlength="3" type="number" value="">
         <input id="operator" type="text" value="">
@@ -35,21 +35,19 @@
     <p class="center" id="timer">Timer: <span id="time">unbegrenzt</span></p>
 
     <section class="container">
-        <button onclick="submitEstimateGame()" type="submit">Check</button>
-        <button id="nextTaskBtn" onclick="nextTask()" type="submit">Next Task</button>
-        <button onclick="Done()" type="submit">Done</button>
+        <button onclick="submitEstimateGame()" type="submit">Überprüfen</button>
+        <button id="nextTaskBtn" onclick="nextTask()" type="submit">Weiter</button>
+        <button onclick="Done()" type="submit">Fertig</button>
     </section>
 </section>
 <section id="gameResults" style="display: none">
     <h1 class="center">Auswertung</h1>
-    <p>Hey <span id="name">X</span>, <br/>
+    <p id="analysis">Hey <span id="name">X</span>, <br/>
         du hast von insgesamt <span id="correct">X</span> von <span id="tasks"></span> Aufgaben direkt richtig
         gelöst,<br/>
         bei <span id="tries">X</span> Weitern hast du mehr als einen Versuch gebraucht <br>
         und bei <span id="skips">X</span> Aufgaben hast du elendig versagt.
     </p>
-
-
     <a href="../index.html">
         <Button>Zurück</Button>
     </a>

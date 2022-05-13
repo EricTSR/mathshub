@@ -1,17 +1,9 @@
-//Stats
-let games = 0;
-let skips = 0;
-let tries = 0;
+let [games, skips, tries, correct, taskTries, difficulty] = [0, 0, 0, 0, 0, 0];
+const level = localStorage.getItem("vOneLocalStorage");
 
-//Temp
-let taskTries = 0;
+//Timer in seconds
+const timer = 30;
 
-let difficulty = 0;
-let level = localStorage.getItem("vOneLocalStorage");
-
-/**
- * Stats the game and generates the first task
- */
 function startGame(x) {
   difficulty = x;
 
@@ -24,7 +16,7 @@ function startGame(x) {
   new NumberGame("value1", "value2", "operator", "result", level, difficulty);
 
   if (parseInt(difficulty) >= 2) {
-    timeLeft = 10;
+    resetTimer();
     countdown();
     if (parseInt(difficulty) === 3) {
       setInterval(createDistraction, 300);
@@ -38,7 +30,6 @@ function startGame(x) {
 function newTask() {
   //Update Stats
   updateGamesPlayer();
-  updateTriesPlayer();
 
   //Skip Button
   taskTries = 0;
@@ -51,31 +42,29 @@ function newTask() {
   new NumberGame("value1", "value2", "operator", "result", level, difficulty);
   console.log("Schwierigkeit:" + difficulty)
   if (parseInt(difficulty) >= 2) {
-    timeLeft = 10;
+    resetTimer();
     countdown();
   }
 
-  console.log("Hallo")
 }
 
-
 function submitNumberGame() {
-
   timeLeft = 1;
-  document.getElementById("time").innerText = "Unbegrenzt!";
-
 
   if (checkLevel("value1", "operator", "value2", "result")) {
+    if (taskTries === 0) {
+      updateCorrectPlayer();
+    }
     updateText("WoW, super gemacht!")
     setTimeout("newTask()", 1000);
   } else {
-
+    taskTries++;
     //Update text
     updateText("Schade, versuch es doch noch einmal!");
 
-    //Update Stats
-    updateTriesPlayer();
-    taskTries++;
+    if (taskTries === 1) {
+      updateTriesPlayer()
+    }
 
     if (taskTries === 2) {
       document.getElementById("nextTaskBtn").style.visibility = "visible";
@@ -90,30 +79,18 @@ function submitNumberGame() {
  * @constructor
  */
 function Done() {
-  //change menu
+  if (games === 0 && tries <= 1) {
+    updateGamesPlayer()
+  }
+
   document.getElementById("gameDisplay").style.display = "none";
   document.getElementById("gameResults").style.display = "inherit";
 
-  //Set stats
-  document.getElementById("tasks").innerText = "Aufgaben gelöst: " + games;
-  document.getElementById("skips").innerText = "Aufgaben verworfen: " + skips;
-  document.getElementById("tries").innerText = "Fehler: " + tries;
-}
-
-/**
- * Updates the text
- * @param text
- */
-function updateText(text) {
-  document.getElementById("text").innerText = text;
-}
-
-/**
- * Stats a new Task
- */
-function nextTask() {
-  newTask();
-  skips++;
+  document.getElementById("tasks").innerText = games.toString();
+  document.getElementById("skips").innerText = skips.toString();
+  document.getElementById("tries").innerText = tries.toString();
+  document.getElementById("name").innerText = localStorage.getItem("name");
+  document.getElementById("correct").innerText = correct.toString();
 }
 
 /**
@@ -121,13 +98,12 @@ function nextTask() {
  * @returns {boolean}
  */
 function checkLevel(value1, operator, value2, result) {
+  timeLeft = -1;
+
   let a = document.getElementById(value1).value;
   let op = document.getElementById(operator).value;
   let b = document.getElementById(value2).value;
   let res = document.getElementById(result).value;
-
-  console.log(a + op + b + "=" + res);
-
 
   if (op === "+" && ((parseInt(a) + parseInt(b)) === parseInt(res))) {
     return true;
@@ -137,41 +113,92 @@ function checkLevel(value1, operator, value2, result) {
     return true;
   } else if (op === "/" && ((parseInt(a) / parseInt(b)) === (parseInt(res)))) {
     return true;
-  } else {
   }
+}
 
+
+/**
+ * Skips to  the next task
+ */
+function nextTask() {
+  console.log(taskTries)
+  if (taskTries >= 1) {
+    updateSkipsPlayer();
+    tries--;
+  }
+  newTask();
 }
 
 /**
- * Updates player played games count
+ * Updates some text
+ * @param text
+ */
+function updateText(text) {
+  document.getElementById("text").innerText = text;
+}
+
+/**
+ * Updates the played games
  */
 function updateGamesPlayer() {
   games++;
+  console.log("Games:" + games)
 }
 
 /**
- * Updates player tries count
+ * Updates the the total skips of the player
+ */
+function updateSkipsPlayer() {
+  skips++;
+  console.log("Skips" + skips)
+}
+
+/**
+ * Updates the total tries count of the player
  */
 function updateTriesPlayer() {
   tries++;
+  console.log("Versuche:" + tries)
 }
 
+/**
+ * Restes the timer back to the initial value
+ */
+function resetTimer() {
+  timeLeft = timer;
+}
 
-let timeLeft = 10;
+/**
+ * Updates the total correct solved task of the player
+ */
+function updateCorrectPlayer() {
+  correct++;
+  console.log("Correct:" + correct)
+}
 
+/**
+ * Stats and manages a countdown
+ */
 function countdown() {
   timeLeft--;
-  document.getElementById("time").innerHTML = String(timeLeft);
+  if (timeLeft >= 1) {
+    document.getElementById("time").innerHTML = String(timeLeft);
+  } else {
+    document.getElementById("time").innerHTML = "Unbegrenzt";
+  }
+
   if (timeLeft > 0) {
     setTimeout(countdown, 1000);
   }
   if (timeLeft === 0) {
-    submitNumberGame();
+    submitEstimateGame();
   }
 
 }
 
-
+/**
+ * Creates some cool emojis that fly around
+ */
 function createDistraction() {
   const heart = document.createElement("div");
   heart.classList.add("heart");
@@ -185,4 +212,5 @@ function createDistraction() {
     heart.remove();
   }, 5000)
 }
+
 

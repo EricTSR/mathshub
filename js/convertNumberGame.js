@@ -93,7 +93,7 @@ function updateText(text) {
 function nextTask() {
   newTask();
   skips++;
-  console.log("SKips" + skips)
+  console.log("Skips" + skips)
 }
 
 /**

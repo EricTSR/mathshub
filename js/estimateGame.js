@@ -92,26 +92,6 @@ function Done() {
 }
 
 /**
- * Updates some text
- * @param text
- */
-function updateText(text) {
-  document.getElementById("text").innerText = text;
-}
-
-/**
- * Skips to  the next task
- */
-function nextTask() {
-  console.log(taskTries)
-  if (taskTries >= 1) {
-    updateSkipsPlayer();
-    tries--;
-  }
-  newTask();
-}
-
-/**
  * Checks if the task is successfully solved
  * @param value1
  * @param operator
@@ -141,9 +121,6 @@ function checkLevel(value1, operator, value2, result) {
   } else if (op === "/") {
     logs = a / b;
   }
-
-  console.log(a + "|" + b)
-  console.log(res.toString() + logs.toString())
   return res.toString() === logs.toString();
 }
 
@@ -156,6 +133,26 @@ function getRoundNumber(number) {
   let exponent = number.toString().length - 1;
   let factor = Math.pow(10, exponent);
   return Math.round(number / factor) * factor;
+}
+
+/**
+ * Skips to  the next task
+ */
+function nextTask() {
+  console.log(taskTries)
+  if (taskTries >= 1) {
+    updateSkipsPlayer();
+    tries--;
+  }
+  newTask();
+}
+
+/**
+ * Updates some text
+ * @param text
+ */
+function updateText(text) {
+  document.getElementById("text").innerText = text;
 }
 
 /**

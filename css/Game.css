@@ -29,6 +29,10 @@
   color: #fff;
 }
 
+#analysis span {
+  color: #ffffff;
+}
+
 .center {
   text-align: center;
   justify-content: center;
