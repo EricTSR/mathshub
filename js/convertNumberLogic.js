@@ -34,7 +34,7 @@ class ConvertGame {
     while (unit2 === unit1 || this.difference(unit1, unit2) > 1) {
       console.log("--------TRY--------")
       console.log("1st", unit2 === unit1)
-      console.log("2cd", this.difference(unit1, unit2) <= 1, this.difference(unit1, unit2) )
+      console.log("2cd", this.difference(unit1, unit2) <= 1, this.difference(unit1, unit2))
       unit1 = this.getRandomInt(units.length);
       unit2 = this.getRandomInt(units.length);
     }
@@ -54,7 +54,9 @@ class ConvertGame {
   }
 
 
-  difference = function (a, b) { return Math.abs(a - b); }
+  difference = function (a, b) {
+    return Math.abs(a - b);
+  }
 
   /**
    * Generate the finished Task

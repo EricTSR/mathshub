@@ -1,11 +1,4 @@
-//Stats
-let games = 0;
-let skips = 0;
-let tries = 0;
-
-//Temp
-let taskTries = 0;
-
+let [games, skips, tries, correct, taskTries, difficulty] = [0, 0, 0, 0, 0, 0];
 
 /**
  * Stats the game and generates the first task
@@ -37,29 +30,27 @@ function newTask() {
   //Generate new game
   new ConvertGame("value1", "operator1", "value2", "operator2");
 
-
-  console.log("Hallo")
 }
 
 
 function submitNumberGame() {
-
   if (checkLevel("value1", "operator1", "value2", "operator2")) {
+    if (taskTries === 0) {
+      updateCorrectPlayer();
+    }
     updateText("WoW, super gemacht!")
-    setTimeout("newTask()", 1000);
+    setTimeout("newTask()", 1000 * 3);
   } else {
-
-    //Update text
+    taskTries++;
     updateText("Schade, versuch es doch noch einmal!");
 
-    //Update Stats
-    updateTriesPlayer();
-    taskTries++;
+    if (taskTries === 1) {
+      updateTriesPlayer()
+    }
 
     if (taskTries === 2) {
       document.getElementById("nextTaskBtn").style.visibility = "visible";
     }
-
   }
 }
 
@@ -69,38 +60,30 @@ function submitNumberGame() {
  * @constructor
  */
 function Done() {
-  //change menu
+  if (games === 0 && tries <= 1) {
+    updateGamesPlayer()
+  }
+
   document.getElementById("gameDisplay").style.display = "none";
   document.getElementById("gameResults").style.display = "inherit";
 
-  //Set stats
-  document.getElementById("tasks").innerText = "Aufgaben gelöst: " + games;
-  document.getElementById("skips").innerText = "Aufgaben verworfen: " + skips;
-  document.getElementById("tries").innerText = "Fehler: " + tries;
+  document.getElementById("tasks").innerText = games.toString();
+  document.getElementById("skips").innerText = skips.toString();
+  document.getElementById("tries").innerText = tries.toString();
+  document.getElementById("name").innerText = localStorage.getItem("name");
+  document.getElementById("correct").innerText = correct.toString();
 }
 
 /**
- * Updates the text
- * @param text
- */
-function updateText(text) {
-  document.getElementById("text").innerText = text;
-}
-
-/**
- * Stats a new Task
- */
-function nextTask() {
-  newTask();
-  skips++;
-  console.log("Skips" + skips)
-}
-
-/**
- * Checks if the Task is solved successfully
+ * Checks if the task is successfully solved
+ * @param value1
+ * @param operator1
+ * @param value2
+ * @param operator2
  * @returns {boolean}
  */
 function checkLevel(value1, operator1, value2, operator2) {
+
   let v1 = parseInt(document.getElementById(value1).value);
   let op1 = document.getElementById(operator1).value;
   let v2 = parseFloat(document.getElementById(value2).value);
@@ -240,16 +223,54 @@ function checkMM(x, v2, op2) {
 }
 
 /**
- * Updates player played games count
+ * Skips to  the next task
  */
-function updateGamesPlayer() {
-  games++;
+function nextTask() {
+  console.log(taskTries)
+  if (taskTries >= 1) {
+    updateSkipsPlayer();
+    tries--;
+  }
+  newTask();
 }
 
 /**
- * Updates player tries count
+ * Updates some text
+ * @param text
+ */
+function updateText(text) {
+  document.getElementById("text").innerText = text;
+}
+
+/**
+ * Updates the played games
+ */
+function updateGamesPlayer() {
+  games++;
+  console.log("Games:" + games)
+}
+
+/**
+ * Updates the the total skips of the player
+ */
+function updateSkipsPlayer() {
+  skips++;
+  console.log("Skips" + skips)
+}
+
+/**
+ * Updates the total tries count of the player
  */
 function updateTriesPlayer() {
   tries++;
+  console.log("Versuche:" + tries)
 }
 
+
+/**
+ * Updates the total correct solved task of the player
+ */
+function updateCorrectPlayer() {
+  correct++;
+  console.log("Correct:" + correct)
+}

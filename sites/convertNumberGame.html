@@ -15,24 +15,27 @@
 <section class="size" id="gameDisplay">
     <h1 class="center">Umrechnen-Spiel</h1>
     <form style="display: flex; font-size: 2em;" class="container">
-        <input type="text" id="value1" value="">
+        <input id="value1" maxlength="4" type="text" value="">
         <input type="text" id="operator1" value="">
         <input type="text" value="=" readonly>
-        <input type="number" id="value2" value="">
+        <input id="value2" maxlength="4" type="text" value="">
         <input type="text" id="operator2" value="">
     </form>
     <p id="text" class="center"></p>
     <section class="container">
-        <button type="submit" onclick="submitNumberGame()">Check</button>
-        <button type="submit" onclick="nextTask()" id="nextTaskBtn">Next Task</button>
-        <button type="submit" onclick="Done()">Done</button>
+        <button onclick="submitNumberGame()" type="submit">Prüfen</button>
+        <button id="nextTaskBtn" onclick="nextTask()" type="submit">Weiter</button>
+        <button onclick="Done()" type="submit">Fertig</button>
     </section>
 </section>
 <section id="gameResults" style="display: none">
     <h1 class="center">Results</h1>
-    <p id="tasks"></p>
-    <p id="skips"></p>
-    <p id="tries"></p>
+    <p id="analysis">Hey <span id="name">X</span>, <br/>
+        du hast von insgesamt <span id="correct">X</span> von <span id="tasks"></span> Aufgaben direkt richtig
+        gelöst,<br/>
+        bei <span id="tries">X</span> Weitern hast du mehr als einen Versuch gebraucht <br>
+        und bei <span id="skips">X</span> Aufgaben hast du elendig versagt.
+    </p>
     <a href="../index.html">
         <Button>Zurück</Button>
     </a>
