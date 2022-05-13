@@ -8,7 +8,7 @@
     <script src="../js/estimateLogic.js"></script>
     <link href="../css/Game.css" rel="stylesheet">
 
-    <title>MathsHub | Rechnen</title>
+    <title>MathsHub | Überschlag</title>
 </head>
 <body id="hallo">
 
@@ -41,10 +41,15 @@
     </section>
 </section>
 <section id="gameResults" style="display: none">
-    <h1 class="center">Results</h1>
-    <p id="tasks"></p>
-    <p id="skips"></p>
-    <p id="tries"></p>
+    <h1 class="center">Auswertung</h1>
+    <p>Hey <span id="name">X</span>, <br/>
+        du hast von insgesamt <span id="correct">X</span> von <span id="tasks"></span> Aufgaben direkt richtig
+        gelöst,<br/>
+        bei <span id="tries">X</span> Weitern hast du mehr als einen Versuch gebraucht <br>
+        und bei <span id="skips">X</span> Aufgaben hast du elendig versagt.
+    </p>
+
+
     <a href="../index.html">
         <Button>Zurück</Button>
     </a>

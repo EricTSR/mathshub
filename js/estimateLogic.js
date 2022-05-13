@@ -47,8 +47,6 @@ class EstimateGame {
       }
     }
 
-    console.log("Game: " + this.a + this.operator + this.b + "=" + this.result);
-
   }
 
 
@@ -89,7 +87,6 @@ class EstimateGame {
     } else {
       this.range = 1000;
     }
-    console.log("NG: Range set to: " + this.range);
   }
 
   /**
@@ -106,7 +103,6 @@ class EstimateGame {
       this.distance = this.range;
     }
 
-    console.log("NG: Distance set to: " + this.distance)
   }
 
   /**
@@ -120,7 +116,6 @@ class EstimateGame {
 
     document.getElementById(this.opID).value = this.operator;
     document.getElementById(this.opID).readOnly = true;
-    console.log("NG: Game has been set to the Elements!");
   }
 
   //Put the input fields into read only mod, when they have no value
