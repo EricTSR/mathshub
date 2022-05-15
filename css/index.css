@@ -20,7 +20,7 @@ h1 {
   padding-top: 5rem;
   border-radius: 18px;
   color: #fff;
-  font-family: roboto;
+  font-family: roboto, serif;
   text-align: center;
 }
 
@@ -85,7 +85,7 @@ nav a span {
 }
 
 form {
-  height: 50%;
+  height: 55%;
   width: 25%;
   background-color: rgba(255, 255, 255, 0.13);
   position: absolute;

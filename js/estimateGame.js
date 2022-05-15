@@ -77,8 +77,14 @@ function submitEstimateGame() {
  * @constructor
  */
 function Done() {
-  if (games === 0 && tries <= 1) {
+  if (games === 0) {
     updateGamesPlayer()
+  }
+  if (taskTries >= 1) {
+    updateSkipsPlayer()
+    tries--;
+  } else {
+    updateTriesPlayer()
   }
 
   document.getElementById("gameDisplay").style.display = "none";
@@ -89,7 +95,19 @@ function Done() {
   document.getElementById("tries").innerText = tries.toString();
   document.getElementById("name").innerText = localStorage.getItem("name");
   document.getElementById("correct").innerText = correct.toString();
+  checkM("tasksM", games);
+  checkM("skipsM", tries);
 }
+
+function checkM(id, amount) {
+  if (amount === 1) {
+    document.getElementById(id).style.display = "inline"
+  } else {
+    document.getElementById(id).style.display = "none"
+  }
+
+}
+
 
 /**
  * Checks if the task is successfully solved

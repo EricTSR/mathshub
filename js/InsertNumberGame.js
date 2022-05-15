@@ -79,8 +79,14 @@ function submitNumberGame() {
  * @constructor
  */
 function Done() {
-  if (games === 0 && tries <= 1) {
+  if (games === 0) {
     updateGamesPlayer()
+  }
+  if (taskTries >= 1) {
+    updateSkipsPlayer()
+    tries--;
+  } else {
+    updateTriesPlayer()
   }
 
   document.getElementById("gameDisplay").style.display = "none";
@@ -91,6 +97,18 @@ function Done() {
   document.getElementById("tries").innerText = tries.toString();
   document.getElementById("name").innerText = localStorage.getItem("name");
   document.getElementById("correct").innerText = correct.toString();
+
+  checkM("tasksM", games);
+  checkM("skipsM", tries);
+}
+
+function checkM(id, amount) {
+  if (amount === 1) {
+    document.getElementById(id).style.display = "inline"
+  } else {
+    document.getElementById(id).style.display = "none"
+  }
+
 }
 
 /**
@@ -150,6 +168,7 @@ function updateGamesPlayer() {
  */
 function updateSkipsPlayer() {
   skips++;
+  console.log("!hee")
   console.log("Skips" + skips)
 }
 
@@ -191,9 +210,8 @@ function countdown() {
     setTimeout(countdown, 1000);
   }
   if (timeLeft === 0) {
-    submitEstimateGame();
+    submitNumberGame()
   }
-
 }
 
 /**
@@ -204,7 +222,7 @@ function createDistraction() {
   heart.classList.add("heart");
   heart.style.left = Math.random() * 100 + "vw";
   heart.style.animationDuration = Math.random() * 2 + 3 + "s";
-  heart.innerHTML = "\t&#128526;"
+  heart.innerHTML = "\t&#128526;'"
   heart.style.zIndex = "-1"
   document.body.appendChild(heart);
 

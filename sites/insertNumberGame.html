@@ -38,16 +38,19 @@
     <section class="container">
         <button onclick="submitNumberGame()" type="submit">Überprüfen</button>
         <button id="nextTaskBtn" onclick="nextTask()" type="submit">Weiter</button>
-        <button onclick="Done()" type="submit">Fertig</button>
+        <button onclick="new Done()" type="submit">Fertig</button>
     </section>
 </section>
 <section id="gameResults" style="display: none">
-    <h1 class="center">Results</h1>
+    <h1 class="center">Auswertung</h1>
     <p id="analysis">Hey <span id="name">X</span>, <br/>
-        du hast von insgesamt <span id="correct">X</span> von <span id="tasks"></span> Aufgaben direkt richtig
+        du hast von insgesamt <span id="correct">X</span> von <span id="tasks"></span> Aufgabe<span id="tasksM"
+                                                                                                    style="color: #FF076EFF !important;">n</span>
+        direkt richtig
         gelöst,<br/>
-        bei <span id="tries">X</span> Weitern hast du mehr als einen Versuch gebraucht <br>
-        und bei <span id="skips">X</span> Aufgaben hast du elendig versagt.
+        bei <span id="tries">X</span> Weiteren hast du mehr als einen Versuch gebraucht <br>
+        und <span id="skips">X</span> Aufgabe<span id="skipsM" style="color: #FF076EFF !important;">n</span> hast du
+        nicht lösen können.
     </p>
     <a href="../index.html">
         <Button>Zurück</Button>
